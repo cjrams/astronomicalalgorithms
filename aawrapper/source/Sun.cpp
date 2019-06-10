@@ -7,9 +7,9 @@ namespace AstronomicalAlgorithms {
 Sun::Sun(const CAADate& date, float latitude, float longitude)
 	: mJulianDate (date.Julian())
 {
-	auto SunDetails1 = CAAElliptical::Calculate(mJulianDate - 1, CAAElliptical::SUN, true);
-	auto SunDetails2 = CAAElliptical::Calculate(mJulianDate, CAAElliptical::SUN, true);
-	auto SunDetails3 = CAAElliptical::Calculate(mJulianDate + 1, CAAElliptical::SUN, true);
+	auto SunDetails1 = CAAElliptical::Calculate(mJulianDate - 1, CAAElliptical::EllipticalObject::SUN, true);
+	auto SunDetails2 = CAAElliptical::Calculate(mJulianDate, CAAElliptical::EllipticalObject::SUN, true);
+	auto SunDetails3 = CAAElliptical::Calculate(mJulianDate + 1, CAAElliptical::EllipticalObject::SUN, true);
 	mRiseTransitSetDetails = CAARiseTransitSet::Calculate(
 			mJulianDate,
 			SunDetails1.ApparentGeocentricRA,

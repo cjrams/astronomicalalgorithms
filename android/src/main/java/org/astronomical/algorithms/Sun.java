@@ -7,17 +7,18 @@ import java.util.Date;
 import java.util.TimeZone;
 
 public class Sun {
+    private final String TAG = "AstronomicalAlgorithms";
     public Sun(Calendar date, float longitude, float latitude) {
         TimeZone timeZone = TimeZone.getTimeZone("GTM");
         sunRise = Calendar.getInstance(timeZone);
         sunSet = Calendar.getInstance(timeZone);
         sunTransit = Calendar.getInstance(timeZone);
-        Log.d("AstronomicalAlgorithms", "Date: " + date.toString());
-        Log.d("AstronomicalAlgorithms", "InitialSunRise: " + getSunRise().toString());
+        Log.d(TAG, "Date: " + date.toString());
+        Log.d(TAG, "InitialSunRise: " + getSunRise().toString());
         CalcSunPosition(date, longitude ,latitude);
-        Log.d("AstronomicalAlgorithms", "SunRise: " +getSunRise().toString());
-        Log.d("AstronomicalAlgorithms", "SunTransit: " +getSunTransit().toString());
-        Log.d("AstronomicalAlgorithms", "SunSet: " +getSunSet().toString());
+        Log.d(TAG, "SunRise: " + getSunRise().toString());
+        Log.d(TAG, "SunTransit: " + getSunTransit().toString());
+        Log.d(TAG, "SunSet: " + getSunSet().toString());
     }
 
     public Date getSunRise(){

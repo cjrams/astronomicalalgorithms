@@ -1,11 +1,14 @@
 build/
 .idea/
 .gradle/
-gradle/
 
 .DS_Store
 .externalNativeBuild
 *.iml
 local.properties
-gradlew
-gradlew.bat
+conanbuildinfo.cmake
+conanbuildinfo.txt
+conanfile.txt
+conaninfo.txt
+graph_info.json
+
