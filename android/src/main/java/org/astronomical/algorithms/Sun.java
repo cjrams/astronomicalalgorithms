@@ -3,12 +3,12 @@ package org.astronomical.algorithms;
 import android.util.Log;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.util.TimeZone;
 
 public class Sun {
     private final String TAG = "AstronomicalAlgorithms";
-    public Sun(Calendar date, float longitude, float latitude) {
+
+    public Sun(Calendar date, float latitude, float longitude) {
         TimeZone timeZone = TimeZone.getTimeZone("GTM");
         sunRise = Calendar.getInstance(timeZone);
         sunSet = Calendar.getInstance(timeZone);
@@ -21,16 +21,16 @@ public class Sun {
         Log.d(TAG, "SunSet: " + getSunSet().toString());
     }
 
-    public Date getSunRise(){
-        return sunRise.getTime();
+    public Calendar getSunRise(){
+            return sunRise;
     }
 
-    public Date getSunSet(){
-        return sunSet.getTime();
+    public Calendar getSunSet(){
+        return sunSet;
     }
 
-    public Date getSunTransit(){
-        return sunTransit.getTime();
+    public Calendar getSunTransit(){
+        return sunTransit;
     }
 
     private Calendar sunRise, sunSet, sunTransit;

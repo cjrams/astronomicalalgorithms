@@ -38,4 +38,4 @@ void DateConversions::Convert(CAADate date, jobject javaDate) const {
 		static_cast<int>(date.Second()));
 }
 
-} //namespace
+} //namespace JavaUtils

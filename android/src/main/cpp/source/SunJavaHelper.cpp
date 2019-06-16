@@ -28,4 +28,4 @@ jobject SunJavaHelper::GetSunTransit(jobject sun) const {
 	return mEnv->GetObjectField(sun, mSunTransitFieldId);
 }
 
-} //namespace
+} //namespace JavaUtils
