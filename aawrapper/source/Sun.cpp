@@ -11,16 +11,12 @@ Sun::Sun(const CAADate& date, float latitude, float longitude)
 	auto SunDetails2 = CAAElliptical::Calculate(mJulianDate, CAAElliptical::EllipticalObject::SUN, true);
 	auto SunDetails3 = CAAElliptical::Calculate(mJulianDate + 1, CAAElliptical::EllipticalObject::SUN, true);
 	mRiseTransitSetDetails = CAARiseTransitSet::Calculate(
-			mJulianDate,
-			SunDetails1.ApparentGeocentricRA,
-			SunDetails1.ApparentGeocentricDeclination,
-			SunDetails2.ApparentGeocentricRA,
-			SunDetails2.ApparentGeocentricDeclination,
-			SunDetails3.ApparentGeocentricRA,
-			SunDetails3.ApparentGeocentricDeclination,
-			-longitude,
-			latitude,
-			-0.8333);
+		mJulianDate,
+		SunDetails1.ApparentGeocentricRA, SunDetails1.ApparentGeocentricDeclination,
+		SunDetails2.ApparentGeocentricRA, SunDetails2.ApparentGeocentricDeclination,
+		SunDetails3.ApparentGeocentricRA, SunDetails3.ApparentGeocentricDeclination,
+		-longitude, latitude,
+		-0.8333);
 }
 
 CAADate Sun::GetRise() const {
@@ -35,5 +31,5 @@ CAADate Sun::GetTransit() const {
 	return CAADate((mJulianDate + (mRiseTransitSetDetails.Transit / 24.00)), true);
 }
 
-} //namespace
+} //namespace AstronomicalAlgorithms
 

@@ -15,5 +15,4 @@ namespace AstronomicalAlgorithms {
 			CAARiseTransitSetDetails mRiseTransitSetDetails;
 			double mJulianDate;
 	};
-
-}
+} //namespace AstronomicalAlgorithms
