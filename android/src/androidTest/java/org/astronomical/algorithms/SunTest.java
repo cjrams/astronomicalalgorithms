@@ -21,13 +21,13 @@ public class SunTest {
 
         Calendar sunRiseCalendar = Calendar.getInstance(gmt);
         sunRiseCalendar.set(2010, Calendar.NOVEMBER,15, 6, 40, 24);
-        Calendar sunSerCalendar = Calendar.getInstance(gmt);
-        sunSerCalendar.set(2010, Calendar.NOVEMBER,15, 16, 30, 58);
+        Calendar sunSetCalendar = Calendar.getInstance(gmt);
+        sunSetCalendar.set(2010, Calendar.NOVEMBER,15, 16, 30, 58);
         Calendar sunTransitCalendar = Calendar.getInstance(gmt);
         sunTransitCalendar.set(2010, Calendar.NOVEMBER,15, 11, 35, 54);
 
         assertEquals(sun.getSunRise().getTimeInMillis(), sunRiseCalendar.getTimeInMillis(), 1000);
-        assertEquals(sun.getSunSet().getTimeInMillis(), sunSerCalendar.getTimeInMillis(), 1000);
+        assertEquals(sun.getSunSet().getTimeInMillis(), sunSetCalendar.getTimeInMillis(), 1000);
         assertEquals(sun.getSunTransit().getTimeInMillis(), sunTransitCalendar.getTimeInMillis(), 1000);
     }
 }
