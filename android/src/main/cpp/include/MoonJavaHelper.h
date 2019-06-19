@@ -6,15 +6,14 @@ namespace JavaUtils {
 		public:
 			MoonJavaHelper(JNIEnv* env);
 			~MoonJavaHelper();
-			jobject GetMoonRise(jobject sun) const;
-			jobject GetMoonSet(jobject sun) const;
-			jobject GetMoonTransit(jobject sun) const;
+			jobject GetRise(jobject sun) const;
+			jobject GetSet(jobject sun) const;
+			jobject GetTransit(jobject sun) const;
 		private:
 			JNIEnv* mEnv;
 			jclass mCls;
-			jclass mClsClazz;
-			jfieldID mMoonRiseFieldId;
-			jfieldID mMoonSetFieldId;
-			jfieldID mMoonTransitFieldId;
+			jfieldID mRiseFieldId;
+			jfieldID mSetFieldId;
+			jfieldID mTransitFieldId;
 	};
 }

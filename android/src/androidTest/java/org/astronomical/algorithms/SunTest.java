@@ -15,9 +15,9 @@ public class SunTest {
     @Test
     public void sunTests() {
         TimeZone gmt = TimeZone.getTimeZone("GTM");
-        Calendar sunCalendar = Calendar.getInstance(gmt);
-        sunCalendar.set(2010, Calendar.NOVEMBER,15);
-        Sun sun = new Sun(sunCalendar,41.7859f, 2.1699f);
+        Calendar calendar = Calendar.getInstance(gmt);
+        calendar.set(2010, Calendar.NOVEMBER,15);
+        Sun sun = new Sun(calendar,41.7859f, 2.1699f);
 
         Calendar sunRiseCalendar = Calendar.getInstance(gmt);
         sunRiseCalendar.set(2010, Calendar.NOVEMBER,15, 6, 40, 24);
@@ -26,9 +26,9 @@ public class SunTest {
         Calendar sunTransitCalendar = Calendar.getInstance(gmt);
         sunTransitCalendar.set(2010, Calendar.NOVEMBER,15, 11, 35, 54);
 
-        assertEquals(sun.getSunRise().getTimeInMillis(), sunRiseCalendar.getTimeInMillis(), 1000);
-        assertEquals(sun.getSunSet().getTimeInMillis(), sunSetCalendar.getTimeInMillis(), 1000);
-        assertEquals(sun.getSunTransit().getTimeInMillis(), sunTransitCalendar.getTimeInMillis(), 1000);
+        assertEquals(sun.getRise().getTimeInMillis(), sunRiseCalendar.getTimeInMillis(), 1000);
+        assertEquals(sun.getSet().getTimeInMillis(), sunSetCalendar.getTimeInMillis(), 1000);
+        assertEquals(sun.getTransit().getTimeInMillis(), sunTransitCalendar.getTimeInMillis(), 1000);
     }
 }
 

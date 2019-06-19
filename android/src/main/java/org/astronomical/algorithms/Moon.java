@@ -1,43 +1,33 @@
 package org.astronomical.algorithms;
 
-import android.util.Log;
-
 import java.util.Calendar;
 import java.util.TimeZone;
 
 public class Moon {
-	private final String TAG = "AstronomicalAlgorithms";
-
 	public Moon(Calendar date, float latitude, float longitude) {
 		TimeZone timeZone = TimeZone.getTimeZone("GTM");
-		moonRise = Calendar.getInstance(timeZone);
-		moonSet = Calendar.getInstance(timeZone);
-		moonTransit = Calendar.getInstance(timeZone);
-		Log.d(TAG, "Date: " + date.toString());
-		Log.d(TAG, "InitialMoonRise: " + getMoonRise().toString());
-		CalcMoonPosition(date, longitude ,latitude);
-		Log.d(TAG, "MoonRise: " + getMoonRise().toString());
-		Log.d(TAG, "MoonTransit: " + getMoonTransit().toString());
-		Log.d(TAG, "MoonSet: " + getMoonSet().toString());
+		rise = Calendar.getInstance(timeZone);
+		set = Calendar.getInstance(timeZone);
+		transit = Calendar.getInstance(timeZone);
+		CalcPosition(date, longitude ,latitude);
 	}
 
-	public Calendar getMoonRise(){
-		return moonRise;
+	public Calendar getRise(){
+		return rise;
 	}
 
-	public Calendar getMoonSet(){
-		return moonSet;
+	public Calendar getSet(){
+		return set;
 	}
 
-	public Calendar getMoonTransit(){
-		return moonTransit;
+	public Calendar getTransit(){
+		return transit;
 	}
 
-	private Calendar moonRise, moonSet, moonTransit;
-	private native void CalcMoonPosition(Calendar date, float longitude, float latitude);
+	private Calendar rise, set, transit;
+	private native void CalcPosition(Calendar date, float longitude, float latitude);
 
 	static {
 		System.loadLibrary("astronomicalAlgorithms");
 	}
-
 }
