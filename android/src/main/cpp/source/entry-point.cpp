@@ -4,9 +4,11 @@
 #include <SunJavaHelper.h>
 #include <MoonJavaHelper.h>
 #include <MarsJavaHelper.h>
+#include <PlutoJavaHelper.h>
 #include <aawrapper/Sun.h>
 #include <aawrapper/Moon.h>
 #include <aawrapper/Mars.h>
+#include <aawrapper/Pluto.h>
 #include <aaplus/AADate.h>
 #include <memory>
 
@@ -15,6 +17,7 @@ struct JavaHelpers {
     std::unique_ptr<JavaUtils::SunJavaHelper> sun;
     std::unique_ptr<JavaUtils::MoonJavaHelper> moon;
 	std::unique_ptr<JavaUtils::MarsJavaHelper> mars;
+	std::unique_ptr<JavaUtils::PlutoJavaHelper> pluto;
 };
 
 namespace {
@@ -31,6 +34,7 @@ extern "C" jint JNI_OnLoad(JavaVM* vm, void* /*reserved*/){
 	javaHelpers.sun = std::make_unique<JavaUtils::SunJavaHelper>(env);
 	javaHelpers.moon = std::make_unique<JavaUtils::MoonJavaHelper>(env);
 	javaHelpers.mars = std::make_unique<JavaUtils::MarsJavaHelper>(env);
+	javaHelpers.pluto = std::make_unique<JavaUtils::PlutoJavaHelper>(env);
 
 	return JNI_VERSION_1_6;
 }
@@ -68,9 +72,20 @@ extern "C" JNIEXPORT void JNICALL
 Java_org_astronomical_algorithms_Mars_CalcPosition(JNIEnv* /*env*/, jclass javaMars, jobject date,
 												   jfloat longitude, jfloat latitude) {
 	auto marsDate = javaHelpers.dateConversions->Convert(date);
-    	AstronomicalAlgorithms::Mars mars(marsDate, latitude, longitude);
+	AstronomicalAlgorithms::Mars mars(marsDate, latitude, longitude);
 
 	javaHelpers.dateConversions->Convert(mars.GetRise(), javaHelpers.mars->GetRise(javaMars));
 	javaHelpers.dateConversions->Convert(mars.GetSet(), javaHelpers.mars->GetSet(javaMars));
 	javaHelpers.dateConversions->Convert(mars.GetTransit(), javaHelpers.mars->GetTransit(javaMars));
+}
+
+extern "C" JNIEXPORT void JNICALL
+Java_org_astronomical_algorithms_Pluto_CalcPosition(JNIEnv* /*env*/, jclass javaPluto, jobject date,
+												   jfloat longitude, jfloat latitude) {
+	auto plutoDate = javaHelpers.dateConversions->Convert(date);
+	AstronomicalAlgorithms::Pluto pluto(plutoDate, latitude, longitude);
+
+	javaHelpers.dateConversions->Convert(pluto.GetRise(), javaHelpers.mars->GetRise(javaPluto));
+	javaHelpers.dateConversions->Convert(pluto.GetSet(), javaHelpers.mars->GetSet(javaPluto));
+	javaHelpers.dateConversions->Convert(pluto.GetTransit(), javaHelpers.mars->GetTransit(javaPluto));
 }

@@ -30,5 +30,24 @@ public class PlanetsTest {
         assertEquals(mars.getSet().getTimeInMillis(), setCalendar.getTimeInMillis(), 1000);
         assertEquals(mars.getTransit().getTimeInMillis(), transitCalendar.getTimeInMillis(), 1000);
     }
+
+    @Test
+    public void plutoTests() {
+        TimeZone gmt = TimeZone.getTimeZone("GTM");
+        Calendar calendar = Calendar.getInstance(gmt);
+        calendar.set(2010, Calendar.NOVEMBER,15);
+        Pluto pluto = new Pluto(calendar,41.7859f, 2.1699f);
+
+        Calendar riseCalendar = Calendar.getInstance(gmt);
+        riseCalendar.set(2010, Calendar.NOVEMBER,15, 9, 36, 22);
+        Calendar setCalendar = Calendar.getInstance(gmt);
+        setCalendar.set(2010, Calendar.NOVEMBER,15, 19, 20, 4);
+        Calendar transitCalendar = Calendar.getInstance(gmt);
+        transitCalendar.set(2010, Calendar.NOVEMBER,15, 14, 28, 13);
+
+        assertEquals(pluto.getRise().getTimeInMillis(), riseCalendar.getTimeInMillis(), 1000);
+        assertEquals(pluto.getSet().getTimeInMillis(), setCalendar.getTimeInMillis(), 1000);
+        assertEquals(pluto.getTransit().getTimeInMillis(), transitCalendar.getTimeInMillis(), 1000);
+    }
 }
 
