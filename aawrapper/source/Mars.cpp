@@ -4,10 +4,10 @@
 
 namespace AstronomicalAlgorithms {
 
-Mars::Mars(const CAADate& date, float latitude, float longitude)
-	: Planet(date.Julian())
+Mars::Mars(const CAADate& date, double latitude, double longitude)
+	: AstronomicalBody(date.Julian())
 {
-    Initialize(latitude, longitude, CAAElliptical::EllipticalObject::MARS);
+    Initialize(latitude, longitude, CAAElliptical::EllipticalObject::MARS, -0.5667);
 }
 
 } //namespace AstronomicalAlgorithms

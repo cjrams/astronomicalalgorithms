@@ -4,7 +4,7 @@
 namespace JavaUtils {
 
 SunJavaHelper::SunJavaHelper(JNIEnv* env)
-	: PlanetJavaHelper(env, env->FindClass("org/astronomical/algorithms/Sun")) {
+	: AstronomicalBodyJavaHelper(env, env->FindClass("org/astronomical/algorithms/Sun")) {
 	InitFields();
 }
 

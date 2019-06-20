@@ -2,9 +2,9 @@
 #include <jni.h>
 
 namespace JavaUtils {
-	class PlanetJavaHelper {
+	class AstronomicalBodyJavaHelper {
 		public:
-			PlanetJavaHelper(JNIEnv* envmm, jclass cls);
+			AstronomicalBodyJavaHelper(JNIEnv* envmm, jclass cls);
 			jobject GetRise(jobject object) const;
 			jobject GetSet(jobject object) const;
 			jobject GetTransit(jobject object) const;

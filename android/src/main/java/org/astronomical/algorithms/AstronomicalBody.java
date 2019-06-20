@@ -3,8 +3,8 @@ package org.astronomical.algorithms;
 import java.util.Calendar;
 import java.util.TimeZone;
 
-public abstract class Planet {
-	public Planet() {
+public abstract class AstronomicalBody {
+	public AstronomicalBody() {
 		TimeZone timeZone = TimeZone.getTimeZone("GTM");
 		rise = Calendar.getInstance(timeZone);
 		set = Calendar.getInstance(timeZone);
@@ -14,11 +14,9 @@ public abstract class Planet {
 	public Calendar getRise(){
 		return rise;
 	}
-
 	public Calendar getSet(){
 		return set;
 	}
-
 	public Calendar getTransit(){
 		return transit;
 	}

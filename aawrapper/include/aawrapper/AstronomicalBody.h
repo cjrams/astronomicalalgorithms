@@ -6,10 +6,10 @@
 class CAADate;
 
 namespace AstronomicalAlgorithms {
-	class Planet {
+	class AstronomicalBody {
 		public:
-            Planet(double julianDate);
-			void Initialize(float latitude, float longitude, CAAElliptical::EllipticalObject ellipticalObject);
+            AstronomicalBody(double julianDate);
+			void Initialize(double latitude, double longitude, CAAElliptical::EllipticalObject ellipticalObject, double geographicObserverLatitude);
 			CAADate GetRise() const;
 			CAADate GetSet() const;
 			CAADate GetTransit() const;

@@ -8,7 +8,7 @@
 namespace AstronomicalAlgorithms {
 
 Moon::Moon(const CAADate& date, float latitude, float longitude)
-	: mJulianDate (date.Julian())
+	: AstronomicalBody (date.Julian())
 {
 	auto lunarCoord = [](double juliadDate){
 		return CAACoordinateTransformation::Ecliptic2Equatorial(
@@ -29,18 +29,6 @@ Moon::Moon(const CAADate& date, float latitude, float longitude)
             -longitude, latitude,
             0.125);
 
-}
-
-CAADate Moon::GetRise() const {
-	return CAADate((mJulianDate + (mRiseTransitSetDetails.Rise/ 24.00)), true);
-}
-
-CAADate Moon::GetSet() const {
-	return CAADate((mJulianDate + (mRiseTransitSetDetails.Set / 24.00)), true);
-}
-
-CAADate Moon::GetTransit() const {
-	return CAADate((mJulianDate + (mRiseTransitSetDetails.Transit / 24.00)), true);
 }
 
 } //namespace AstronomicalAlgorithms

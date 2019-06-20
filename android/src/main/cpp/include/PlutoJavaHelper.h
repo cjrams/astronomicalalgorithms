@@ -1,9 +1,9 @@
 #pragma once
 #include <jni.h>
-#include <PlanetJavaHelper.h>
+#include <AstronomicalBodyJavaHelper.h>
 
 namespace JavaUtils {
-	class PlutoJavaHelper : public PlanetJavaHelper {
+	class PlutoJavaHelper : public AstronomicalBodyJavaHelper {
 		public:
 			PlutoJavaHelper(JNIEnv* env);
 			~PlutoJavaHelper();

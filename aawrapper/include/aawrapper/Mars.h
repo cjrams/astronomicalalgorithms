@@ -1,12 +1,12 @@
 #pragma once
 
-#include <aawrapper/Planet.h>
+#include <aawrapper/AstronomicalBody.h>
 
 class CAADate;
 
 namespace AstronomicalAlgorithms {
-	class Mars : public Planet {
+	class Mars : public AstronomicalBody {
 		public:
-			Mars(const CAADate& date, float latitude, float longitude);
+			Mars(const CAADate& date, double latitude, double longitude);
 	};
 } //namespace AstronomicalAlgorithms

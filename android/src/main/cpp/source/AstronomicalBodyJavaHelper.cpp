@@ -1,27 +1,27 @@
-#include <PlanetJavaHelper.h>
+#include <AstronomicalBodyJavaHelper.h>
 #include <DateConversions.h>
 
 namespace JavaUtils {
 
-PlanetJavaHelper::PlanetJavaHelper(JNIEnv* env, jclass cls)
+AstronomicalBodyJavaHelper::AstronomicalBodyJavaHelper(JNIEnv* env, jclass cls)
 	: mEnv(env)
 	, mCls(cls) {}
 
-void PlanetJavaHelper::InitFields() {
+void AstronomicalBodyJavaHelper::InitFields() {
 	mRiseFieldId = mEnv->GetFieldID(mCls, "rise", "Ljava/util/Calendar;");
 	mSetFieldId = mEnv->GetFieldID(mCls, "set", "Ljava/util/Calendar;");
 	mTransitFieldId = mEnv->GetFieldID(mCls, "transit", "Ljava/util/Calendar;");
 }
 
-jobject PlanetJavaHelper::GetRise(jobject object) const {
+jobject AstronomicalBodyJavaHelper::GetRise(jobject object) const {
 	return mEnv->GetObjectField(object, mRiseFieldId);
 }
 
-jobject PlanetJavaHelper::GetSet(jobject object) const {
+jobject AstronomicalBodyJavaHelper::GetSet(jobject object) const {
 	return mEnv->GetObjectField(object, mSetFieldId);
 }
 
-jobject PlanetJavaHelper::GetTransit(jobject object) const {
+jobject AstronomicalBodyJavaHelper::GetTransit(jobject object) const {
 	return mEnv->GetObjectField(object, mTransitFieldId);
 }
 

@@ -1,18 +1,12 @@
 #pragma once
 
-#include <aaplus/AARiseTransitSet.h>
+#include <aawrapper/AstronomicalBody.h>
 
 class CAADate;
 
 namespace AstronomicalAlgorithms {
-	class Sun {
+	class Sun : public AstronomicalBody {
 		public:
-			Sun(const CAADate& date, float latitude, float longitude);
-			CAADate GetRise() const;
-			CAADate GetSet() const;
-			CAADate GetTransit() const;
-		private:
-			CAARiseTransitSetDetails mRiseTransitSetDetails;
-			double mJulianDate;
+			Sun(const CAADate& date, double latitude, double longitude);
 	};
 } //namespace AstronomicalAlgorithms

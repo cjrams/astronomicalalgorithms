@@ -1,12 +1,12 @@
-#include <aawrapper/Planet.h>
+#include <aawrapper/AstronomicalBody.h>
 #include <aaplus/AADate.h>
 
 namespace AstronomicalAlgorithms {
 
-Planet::Planet(double julianDate)
+	AstronomicalBody::AstronomicalBody(double julianDate)
     : mJulianDate(julianDate) {}
 
-void Planet::Initialize(float latitude, float longitude, CAAElliptical::EllipticalObject ellipticalObject) {
+void AstronomicalBody::Initialize(double latitude, double longitude, CAAElliptical::EllipticalObject ellipticalObject, double geographicObserverLatitude) {
 	auto details1 = CAAElliptical::Calculate(mJulianDate - 1, ellipticalObject, true);
 	auto details2 = CAAElliptical::Calculate(mJulianDate, ellipticalObject, true);
 	auto details3 = CAAElliptical::Calculate(mJulianDate + 1, ellipticalObject, true);
@@ -16,18 +16,18 @@ void Planet::Initialize(float latitude, float longitude, CAAElliptical::Elliptic
 			details2.ApparentGeocentricRA, details2.ApparentGeocentricDeclination,
 			details3.ApparentGeocentricRA, details3.ApparentGeocentricDeclination,
 			-longitude, latitude,
-			-0.5667);
+			geographicObserverLatitude);
 }
 
-CAADate Planet::GetRise() const {
+CAADate AstronomicalBody::GetRise() const {
 	return CAADate((mJulianDate + (mRiseTransitSetDetails.Rise / 24.00)), true);
 }
 
-CAADate Planet::GetSet() const {
+CAADate AstronomicalBody::GetSet() const {
 	return CAADate((mJulianDate + (mRiseTransitSetDetails.Set / 24.00)), true);
 }
 
-CAADate Planet::GetTransit() const {
+CAADate AstronomicalBody::GetTransit() const {
 	return CAADate((mJulianDate + (mRiseTransitSetDetails.Transit / 24.00)), true);
 }
 

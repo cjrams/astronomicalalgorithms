@@ -4,7 +4,7 @@
 namespace JavaUtils {
 
 PlutoJavaHelper::PlutoJavaHelper(JNIEnv* env)
-	: PlanetJavaHelper(env, env->FindClass("org/astronomical/algorithms/Mars")) {
+	: AstronomicalBodyJavaHelper(env, env->FindClass("org/astronomical/algorithms/Mars")) {
 	InitFields();
 }
 
