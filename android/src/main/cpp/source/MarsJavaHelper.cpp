@@ -4,9 +4,7 @@
 namespace JavaUtils {
 
 MarsJavaHelper::MarsJavaHelper(JNIEnv* env)
-	: PlanetJavaHelper(env)
-{
-	mCls = env->FindClass("org/astronomical/algorithms/Mars");
+	: PlanetJavaHelper(env, env->FindClass("org/astronomical/algorithms/Mars")) {
 	InitFields();
 }
 

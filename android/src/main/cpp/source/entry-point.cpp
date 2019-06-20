@@ -30,7 +30,7 @@ extern "C" jint JNI_OnLoad(JavaVM* vm, void* /*reserved*/){
 	javaHelpers.dateConversions = std::make_unique<JavaUtils::DateConversions>(env);
 	javaHelpers.sun = std::make_unique<JavaUtils::SunJavaHelper>(env);
 	javaHelpers.moon = std::make_unique<JavaUtils::MoonJavaHelper>(env);
-//	javaHelpers.mars = std::make_unique<JavaUtils::MarsJavaHelper>(env);
+	javaHelpers.mars = std::make_unique<JavaUtils::MarsJavaHelper>(env);
 
 	return JNI_VERSION_1_6;
 }
@@ -65,12 +65,12 @@ Java_org_astronomical_algorithms_Moon_CalcPosition(JNIEnv* /*env*/, jclass javaM
 }
 
 extern "C" JNIEXPORT void JNICALL
-Java_org_astronomical_algorithms_Mars_CalcPosition(JNIEnv* /*env*/, jclass javaMoon, jobject date,
+Java_org_astronomical_algorithms_Mars_CalcPosition(JNIEnv* /*env*/, jclass javaMars, jobject date,
 												   jfloat longitude, jfloat latitude) {
-	auto moonDate = javaHelpers.dateConversions->Convert(date);
-    	AstronomicalAlgorithms::Mars mars(moonDate, latitude, longitude);
+	auto marsDate = javaHelpers.dateConversions->Convert(date);
+    	AstronomicalAlgorithms::Mars mars(marsDate, latitude, longitude);
 
-	javaHelpers.dateConversions->Convert(mars.GetRise(), javaHelpers.moon->GetRise(javaMoon));
-	javaHelpers.dateConversions->Convert(mars.GetSet(), javaHelpers.moon->GetSet(javaMoon));
-	javaHelpers.dateConversions->Convert(mars.GetTransit(), javaHelpers.moon->GetTransit(javaMoon));
+	javaHelpers.dateConversions->Convert(mars.GetRise(), javaHelpers.mars->GetRise(javaMars));
+	javaHelpers.dateConversions->Convert(mars.GetSet(), javaHelpers.mars->GetSet(javaMars));
+	javaHelpers.dateConversions->Convert(mars.GetTransit(), javaHelpers.mars->GetTransit(javaMars));
 }

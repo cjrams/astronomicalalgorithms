@@ -4,7 +4,7 @@
 namespace JavaUtils {
 	class PlanetJavaHelper {
 		public:
-			PlanetJavaHelper(JNIEnv* env);
+			PlanetJavaHelper(JNIEnv* envmm, jclass cls);
 			jobject GetRise(jobject object) const;
 			jobject GetSet(jobject object) const;
 			jobject GetTransit(jobject object) const;

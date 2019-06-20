@@ -25,6 +25,7 @@ public class Moon {
 	}
 
 	private Calendar rise, set, transit;
+
 	private native void CalcPosition(Calendar date, float longitude, float latitude);
 
 	static {

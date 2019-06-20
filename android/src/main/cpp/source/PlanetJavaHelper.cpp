@@ -3,8 +3,9 @@
 
 namespace JavaUtils {
 
-PlanetJavaHelper::PlanetJavaHelper(JNIEnv* env)
-	: mEnv(env) {}
+PlanetJavaHelper::PlanetJavaHelper(JNIEnv* env, jclass cls)
+	: mEnv(env)
+	, mCls(cls) {}
 
 void PlanetJavaHelper::InitFields() {
 	mRiseFieldId = mEnv->GetFieldID(mCls, "rise", "Ljava/util/Calendar;");

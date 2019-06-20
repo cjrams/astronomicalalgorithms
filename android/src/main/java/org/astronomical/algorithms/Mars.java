@@ -3,8 +3,8 @@ package org.astronomical.algorithms;
 import java.util.Calendar;
 import java.util.TimeZone;
 
-public class Sun {
-	public Sun(Calendar date, float latitude, float longitude) {
+public class Mars {
+	public Mars(Calendar date, float latitude, float longitude) {
 		TimeZone timeZone = TimeZone.getTimeZone("GTM");
 		rise = Calendar.getInstance(timeZone);
 		set = Calendar.getInstance(timeZone);
@@ -13,7 +13,7 @@ public class Sun {
 	}
 
 	public Calendar getRise(){
-			return rise;
+		return rise;
 	}
 
 	public Calendar getSet(){
