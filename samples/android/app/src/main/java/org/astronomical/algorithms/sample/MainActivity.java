@@ -17,13 +17,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Calendar date = Calendar.getInstance();
-        date.set(2017, 6, 15, 12, 0, 0);
-        Sun sun = new Sun(date, (float)59.3293, (float)18.0686);
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2017, 6, 15, 12, 0, 0);
+        Sun sun = new Sun(calendar, (float)59.3293, (float)18.0686);
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        Log.d("Test", "sun rise: " + dateFormat.format(sun.getSunRise().getTimeInMillis()));
+        Log.d("Test", "sun rise: " + dateFormat.format(sun.getRise().getTimeInMillis()));
         TextView sunRiseText = findViewById(R.id.sunRise);
-        sunRiseText.setText("Sun rise: " + dateFormat.format(sun.getSunRise().getTimeInMillis()));
+        sunRiseText.setText("Sun rise: " + dateFormat.format(sun.getRise().getTimeInMillis()));
     }
 
 }
