@@ -7,7 +7,7 @@ namespace AstronomicalAlgorithms {
 Pluto::Pluto(const CAADate& date, double latitude, double longitude)
 	: AstronomicalBody(date.Julian())
 {
-    Initialize(latitude, longitude, CAAElliptical::EllipticalObject::PLUTO, -0.5667);
+    Initialize(latitude, longitude, CAARiseTransitSet2::Object::PLUTO, -0.5667);
 }
 
 } //namespace AstronomicalAlgorithms

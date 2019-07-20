@@ -20,11 +20,11 @@ public class PlanetsTest {
         Mars mars = new Mars(calendar,41.7859f, 2.1699f);
 
         Calendar riseCalendar = Calendar.getInstance(gmt);
-        riseCalendar.set(2010, Calendar.NOVEMBER,15, 8, 26, 18);
+        riseCalendar.set(2010, Calendar.NOVEMBER,15, 8, 25, 13);
         Calendar setCalendar = Calendar.getInstance(gmt);
-        setCalendar.set(2010, Calendar.NOVEMBER,15, 17, 34, 4);
+        setCalendar.set(2010, Calendar.NOVEMBER,15, 17, 32, 56);
         Calendar transitCalendar = Calendar.getInstance(gmt);
-        transitCalendar.set(2010, Calendar.NOVEMBER,15, 13, 0, 18);
+        transitCalendar.set(2010, Calendar.NOVEMBER,15, 12, 59, 10);
 
         assertEquals(mars.getRise().getTimeInMillis(), riseCalendar.getTimeInMillis(), 1000);
         assertEquals(mars.getSet().getTimeInMillis(), setCalendar.getTimeInMillis(), 1000);
@@ -39,11 +39,11 @@ public class PlanetsTest {
         Pluto pluto = new Pluto(calendar,41.7859f, 2.1699f);
 
         Calendar riseCalendar = Calendar.getInstance(gmt);
-        riseCalendar.set(2010, Calendar.NOVEMBER,15, 9, 36, 22);
+        riseCalendar.set(2010, Calendar.NOVEMBER,15, 9, 35, 17);
         Calendar setCalendar = Calendar.getInstance(gmt);
-        setCalendar.set(2010, Calendar.NOVEMBER,15, 19, 20, 4);
+        setCalendar.set(2010, Calendar.NOVEMBER,15, 19, 18, 58);
         Calendar transitCalendar = Calendar.getInstance(gmt);
-        transitCalendar.set(2010, Calendar.NOVEMBER,15, 14, 28, 13);
+        transitCalendar.set(2010, Calendar.NOVEMBER,15, 14, 27, 7);
 
         assertEquals(pluto.getRise().getTimeInMillis(), riseCalendar.getTimeInMillis(), 1000);
         assertEquals(pluto.getSet().getTimeInMillis(), setCalendar.getTimeInMillis(), 1000);

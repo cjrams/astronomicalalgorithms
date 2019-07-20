@@ -19,11 +19,11 @@ public class MoonTest {
         calendar.set(2010, Calendar.NOVEMBER,15);
         Moon moon = new Moon(calendar,41.7859f, 2.1699f);
         Calendar moonRiseCalendar = Calendar.getInstance(gmt);
-        moonRiseCalendar.set(2010, Calendar.NOVEMBER,15, 13, 12, 20);
+        moonRiseCalendar.set(2010, Calendar.NOVEMBER,15, 13, 15, 51);
         Calendar moonSetCalendar = Calendar.getInstance(gmt);
-        moonSetCalendar.set(2010, Calendar.NOVEMBER,15, 0, 25, 41);
+        moonSetCalendar.set(2010, Calendar.NOVEMBER,15, 0, 19, 39);
         Calendar moonTransitCalendar = Calendar.getInstance(gmt);
-        moonTransitCalendar.set(2010, Calendar.NOVEMBER,15, 19, 13, 54);
+        moonTransitCalendar.set(2010, Calendar.NOVEMBER,15, 19, 12, 44);
 
         assertEquals(moon.getRise().getTimeInMillis(), moonRiseCalendar.getTimeInMillis(), 1000);
         assertEquals(moon.getSet().getTimeInMillis(), moonSetCalendar.getTimeInMillis(), 1000);

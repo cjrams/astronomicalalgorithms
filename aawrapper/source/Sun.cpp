@@ -7,7 +7,7 @@ namespace AstronomicalAlgorithms {
 Sun::Sun(const CAADate& date, double latitude, double longitude)
 	: AstronomicalBody (date.Julian())
 {
-	Initialize(latitude, longitude, CAAElliptical::EllipticalObject::SUN, -0.8333);
+	Initialize(latitude, longitude, CAARiseTransitSet2::Object::SUN, -0.8333);
 }
 
 } //namespace AstronomicalAlgorithms

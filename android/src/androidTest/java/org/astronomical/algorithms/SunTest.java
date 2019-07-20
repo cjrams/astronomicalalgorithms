@@ -20,11 +20,11 @@ public class SunTest {
         Sun sun = new Sun(calendar,41.7859f, 2.1699f);
 
         Calendar sunRiseCalendar = Calendar.getInstance(gmt);
-        sunRiseCalendar.set(2010, Calendar.NOVEMBER,15, 6, 40, 24);
+        sunRiseCalendar.set(2010, Calendar.NOVEMBER,15, 6, 39, 19);
         Calendar sunSetCalendar = Calendar.getInstance(gmt);
-        sunSetCalendar.set(2010, Calendar.NOVEMBER,15, 16, 30, 58);
+        sunSetCalendar.set(2010, Calendar.NOVEMBER,15, 16, 29, 50);
         Calendar sunTransitCalendar = Calendar.getInstance(gmt);
-        sunTransitCalendar.set(2010, Calendar.NOVEMBER,15, 11, 35, 54);
+        sunTransitCalendar.set(2010, Calendar.NOVEMBER,15, 11, 34, 48);
 
         assertEquals(sun.getRise().getTimeInMillis(), sunRiseCalendar.getTimeInMillis(), 1000);
         assertEquals(sun.getSet().getTimeInMillis(), sunSetCalendar.getTimeInMillis(), 1000);
