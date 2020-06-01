@@ -4,7 +4,7 @@ buildscript {
 		jcenter()
 	}
 	dependencies {
-		classpath 'com.android.tools.build:gradle:3.4.2'
+		classpath 'com.android.tools.build:gradle:4.0.0'
 	}
 }
 allprojects {
@@ -36,8 +36,10 @@ android {
 	externalNativeBuild {
 		cmake {
 			path 'CMakeLists.txt'
+			setVersion "3.17.3"
 		}
 	}
+	ndkVersion '21.2.6472646'
 }
 
 task conanInstall {
